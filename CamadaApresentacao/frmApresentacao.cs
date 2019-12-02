@@ -12,16 +12,16 @@ using CamadaNegocio;
 
 namespace CamadaApresentacao
 {
-    public partial class frmCategoria : Form
+    public partial class frmApresentacao : Form
     {
+
         private bool eNovo = false;
         private bool eEditar = false;
 
-        public frmCategoria()
+        public frmApresentacao()
         {
             InitializeComponent();
-            this.ttMensagem.SetToolTip(this.txtNome, "Insira o nome da Categoria");
-            //this.ttMensagem.SetToolTip(this.txtDescricao, "Insira uma Descricao ");
+            this.ttMensagem.SetToolTip(this.txtNome, "Insira o nome da Apresentação");
         }
 
         //Mostar menssagem de configuraçaõ
@@ -36,11 +36,12 @@ namespace CamadaApresentacao
             MessageBox.Show(mensagem, "Sistema Comércio ", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
+
         //Limpar Campos
         private void Limpar()
         {
             this.txtNome.Text = string.Empty;
-            this.txtIdCategoria.Text = string.Empty;
+            this.txtIdApresentacao.Text = string.Empty;
             this.txtDescricao.Text = string.Empty;
         }
 
@@ -48,7 +49,7 @@ namespace CamadaApresentacao
         private void Habilitar(bool valor)
         {
             this.txtNome.ReadOnly = !valor;
-            this.txtIdCategoria.ReadOnly = !valor;
+            this.txtIdApresentacao.ReadOnly = !valor;
             this.txtDescricao.ReadOnly = !valor;
         }
 
@@ -72,7 +73,7 @@ namespace CamadaApresentacao
                 this.btnEditar.Enabled = true;
                 this.btnCancelar.Enabled = false;
             }
-           
+
         }
 
         //Ocultar as colunas do grid
@@ -85,7 +86,7 @@ namespace CamadaApresentacao
         //Mostar no data Grid
         private void Mostar()
         {
-            this.dataLista.DataSource = NCategoria.Mostrar();
+            this.dataLista.DataSource = NApresentacao.Mostrar();
             this.OcultarColunas();
             lblTotal.Text = dataLista.Rows.Count.ToString();
             lblTotal.Text = "Quantidade de registros: " + Convert.ToString(dataLista.Rows.Count);
@@ -95,26 +96,23 @@ namespace CamadaApresentacao
         //Buscar pelo Nome
         private void BuscarNome()
         {
-            this.dataLista.DataSource = NCategoria.BuscarNome(this.txtBuscar.Text);
-            this.OcultarColunas();     
+            this.dataLista.DataSource = NApresentacao.BuscarNome(this.txtBuscar.Text);
+            this.OcultarColunas();
             lblTotal.Text = "Quantidade de registros: " + Convert.ToString(dataLista.Rows.Count);
         }
 
-        private void frmCategoria_Load(object sender, EventArgs e)
+        private void frmApresentacao_Load(object sender, EventArgs e)
         {
             this.Top = 0;
             this.Left = 0;
             this.Mostar();
             this.Habilitar(false);
             this.Botoes();
-
-
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             this.BuscarNome();
-
         }
 
         private void txtBuscar_TextChanged(object sender, EventArgs e)
@@ -130,7 +128,7 @@ namespace CamadaApresentacao
             this.Limpar();
             this.Habilitar(true);
             this.txtNome.Focus();
-            this.txtIdCategoria.Enabled = false;
+            this.txtIdApresentacao.Enabled = false;
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
@@ -148,12 +146,12 @@ namespace CamadaApresentacao
                 {
                     if (this.eNovo)
                     {
-                        resp = NCategoria.Inserir(txtNome.Text.Trim().ToUpper(), txtDescricao.Text.Trim());
+                        resp = NApresentacao.Inserir(txtNome.Text.Trim().ToUpper(), txtDescricao.Text.Trim());
                     }
                     else
                     {
-                        resp = NCategoria.Editar(Convert.ToInt32(this.txtIdCategoria.Text), 
-                                                    txtNome.Text.Trim().ToUpper(), 
+                        resp = NApresentacao.Editar(Convert.ToInt32(this.txtIdApresentacao.Text),
+                                                    txtNome.Text.Trim().ToUpper(),
                                                     txtDescricao.Text.Trim());
                     }
                     if (resp.Equals("OK"))
@@ -178,15 +176,15 @@ namespace CamadaApresentacao
                     this.Mostar();
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message + ex.StackTrace);
             }
         }
 
-        private void dataLista_DoubleClick(object sender, EventArgs e)
+        private void dataLista_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            this.txtIdCategoria.Text = Convert.ToString(this.dataLista.CurrentRow.Cells["idcategoria"].Value);
+            this.txtIdApresentacao.Text = Convert.ToString(this.dataLista.CurrentRow.Cells["idapresentacao"].Value);
             this.txtNome.Text = Convert.ToString(this.dataLista.CurrentRow.Cells["nome"].Value);
             this.txtDescricao.Text = Convert.ToString(this.dataLista.CurrentRow.Cells["descricao"].Value);
 
@@ -195,7 +193,7 @@ namespace CamadaApresentacao
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            if (this.txtIdCategoria.Text.Equals(""))
+            if (this.txtIdApresentacao.Text.Equals(""))
             {
                 this.MensagemErro("Selecione um registro");
             }
@@ -251,10 +249,10 @@ namespace CamadaApresentacao
 
                     foreach (DataGridViewRow row in dataLista.Rows)
                     {
-                        if (Convert.ToBoolean( row.Cells[0].Value))
+                        if (Convert.ToBoolean(row.Cells[0].Value))
                         {
                             Codigo = row.Cells[1].Value.ToString(); //caso erro trocar
-                            Resp = NCategoria.Excluir(Convert.ToInt32(Codigo));
+                            Resp = NApresentacao.Excluir(Convert.ToInt32(Codigo));
                             if (Resp.Equals("OK"))
                             {
                                 this.MensagemOK("Registro excluido com sucesso");
@@ -273,5 +271,7 @@ namespace CamadaApresentacao
                 MessageBox.Show(ex.Message + ex.StackTrace);
             }
         }
+
+        
     }
 }

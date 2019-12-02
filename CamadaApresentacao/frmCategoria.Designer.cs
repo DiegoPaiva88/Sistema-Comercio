@@ -79,7 +79,7 @@
             this.tabControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(821, 420);
+            this.tabControl1.Size = new System.Drawing.Size(821, 430);
             this.tabControl1.TabIndex = 1;
             // 
             // tabPage1
@@ -96,7 +96,7 @@
             this.tabPage1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage1.Size = new System.Drawing.Size(813, 391);
+            this.tabPage1.Size = new System.Drawing.Size(813, 401);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Listar";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -126,6 +126,7 @@
             this.dataLista.AllowUserToAddRows = false;
             this.dataLista.AllowUserToDeleteRows = false;
             this.dataLista.AllowUserToOrderColumns = true;
+            this.dataLista.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.dataLista.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataLista.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Deletar});
@@ -148,7 +149,7 @@
             // lblTotal
             // 
             this.lblTotal.AutoSize = true;
-            this.lblTotal.Location = new System.Drawing.Point(512, 75);
+            this.lblTotal.Location = new System.Drawing.Point(40, 374);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(51, 16);
             this.lblTotal.TabIndex = 5;
@@ -346,6 +347,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.Black;
             this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.MaximizeBox = false;
             this.Name = "frmCategoria";
             this.Text = " Controle de Categoria";
             this.Load += new System.EventHandler(this.frmCategoria_Load);
