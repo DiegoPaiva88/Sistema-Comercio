@@ -139,7 +139,7 @@ namespace CamadaDados
                 SqlParameter ParIdproduto = new SqlParameter();
                 ParIdproduto.ParameterName = "@idproduto";
                 ParIdproduto.SqlDbType = SqlDbType.Int;
-                ParIdproduto.Direction = ParameterDirection.Output;
+                ParIdproduto.Value = Produto.IdProduto;
                 SqlCmd.Parameters.Add(ParIdproduto);
 
                 SqlParameter ParCodigo = new SqlParameter();
@@ -217,8 +217,7 @@ namespace CamadaDados
                 ParIdproduto.Value = Produto.IdProduto;
                 SqlCmd.Parameters.Add(ParIdproduto);
 
-
-
+                
                 //executar o comando
                 resp = SqlCmd.ExecuteNonQuery() == 1 ? "OK" : "A exclusão nao foi realizada";
             }

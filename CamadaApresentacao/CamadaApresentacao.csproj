@@ -50,6 +50,12 @@
     <Compile Include="frmApresentacao.Designer.cs">
       <DependentUpon>frmApresentacao.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmBuscarCategoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBuscarCategoria.Designer.cs">
+      <DependentUpon>frmBuscarCategoria.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmCategoria.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -79,6 +85,9 @@
     <EmbeddedResource Include="frmApresentacao.resx">
       <DependentUpon>frmApresentacao.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmBuscarCategoria.resx">
+      <DependentUpon>frmBuscarCategoria.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmCategoria.resx">
       <DependentUpon>frmCategoria.cs</DependentUpon>
     </EmbeddedResource>
@@ -89,6 +98,17 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Resources\iconfinder_edit-clear_23227 %281%29.png" />
+    <Content Include="Resources\iconfinder_edit-clear_23227.png" />
+    <None Include="Resources\iconfinder_eog_3246767.png" />
+    <Content Include="Resources\semimagem.png" />
+    <Content Include="Resources\iconfinder_icon-111-search_314384.png" />
+    <Content Include="Resources\iconfinder_image-search_64_47342.png" />
+    <Content Include="Resources\iconfinder_insert-image_20561.png" />
+    <Content Include="Resources\iconfinder_insert-image_44297.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -51,7 +51,7 @@ namespace CamadaNegocio
         //metodo Mostrar
         public static DataTable Mostrar()
         {
-            return new DApresentacao().Mostrar();
+            return new DProduto().Mostrar();
 
         }
 

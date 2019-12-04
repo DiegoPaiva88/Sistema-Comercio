@@ -59,5 +59,15 @@ namespace CamadaApresentacao.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap iconfinder_eog_3246767 {
+            get {
+                object obj = ResourceManager.GetObject("iconfinder_eog_3246767", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
