@@ -17,7 +17,7 @@ namespace SystemaComercio
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(frmProduto.GetInstancia());
+            Application.Run(new frmFornecedor());
             //frmProduto.GetInstancia()
         }
     }
